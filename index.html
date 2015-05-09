@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <title>JQuery Mobile ex01</title>
+        <!--Importing all libs-->
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+        <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script>
+        $(document).on("mobileinit", function() {
+            $.mobile.toolbar.prototype.options.addBackBtn = true;
+        });
+    </script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <style>
+
+    .save-button{
+        background: #5cb85c;
+        text-shadow: 0 0 0; 
+        color: #ffffff;
+    }
+
+    </style>
+    <title>Hello World</title>
+    </head>
+
+
+    <body>
+        <!--Main page -->   
+        <div data-role="page" id="HomePage">
+            
+            <!--Header-->   
+            <div data-role="header" data-position="fixed" data-theme="a">
+                <h1>NoteApp</h1>   
+            </div>
+
+            <!--Main Content -->    
+            <div data-role="main" class="ui-content">   
+
+                <!--This will be dynamicly populated by JavaScript-->
+                <ul id="note_List" data-role="listview" data-filter="true" data-filter-placeholder="Search Notes" data-inset="false">
+                    
+
+                </ul>
+                
+            </div>
+
+            <!--Fotter -->  
+            <!--To fix the footer we include "data-position" atribute -->   
+            <div data-role="footer" data-position="fixed" data-theme="a">
+                <!--To possition incons in buttons, add to 
+                    "navbar" data-iconpos="rigth" or leve it empty --> 
+                <div data-role="navbar" data-iconpos="top" >
+                    <!--ul - stands for unordered list ! -->    
+                    <ul>
+                        
+                        <li>
+                            <a href="#NotePage" class="ui-btn" data-icon="comment">Take Note</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+                
+            </div>
+        </div>
+
+        <!--Note Page-->
+        <div data-role="page" id="NotePage">
+
+            <div data-role="header">
+                <h1>Note</h1>
+            </div>
+
+            <div data-role="main" class="ui-content">
+                <form id="form-Add">
+                    <label for="noteDescription">Description:</label>
+                    <input type="text" id="noteDescription" value=""> 
+
+                    <label for="note">Start recording your note here:</label>
+                    <textarea type="text" id="addNote"></textarea>
+
+                    <button id="submitNote" class="ui-btn">Save</button>
+
+                </form>
+            </div>
+
+         
+            
+        </div>  
+
+        <!--Edit Page-->
+        <div data-role="page" id="EditNotePage">
+
+            <div data-role="header">
+                <h1>Edit Note</h1>
+            </div>
+
+            <div data-role="main" class="ui-content">
+                <form id="form-Edit">
+                    <label for="noteDescriptionEdit">Description:</label>
+                    <input type="text" id="noteDescriptionEdit" value=""> 
+
+                    <label for="noteEdit">Start recording your note here:</label>
+                    <textarea type="text" id="noteEdit"></textarea>
+
+
+                    <button id="submitEditNote" class="ui-btn ui-btn-inline">Save</button>
+                    <button id="deleteNote" class="ui-btn ui-btn-inline">Delete</button>
+                </form>
+            </div>
+
+         
+            
+        </div> 
+
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+    </body>
+</html>
